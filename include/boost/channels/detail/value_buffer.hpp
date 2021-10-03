@@ -13,6 +13,7 @@
 #include <boost/channels/config.hpp>
 
 #include <cstddef>
+#include <utility>
 
 #include <type_traits>
 

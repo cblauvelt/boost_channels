@@ -13,6 +13,8 @@
 #include <boost/channels/config.hpp>
 #include <boost/channels/detail/consume_op_interface.hpp>
 
+#include <memory>
+
 namespace boost::channels::detail {
 /// @brief A consumer op specialisation which calls a function when done
 /// @tparam ValueType

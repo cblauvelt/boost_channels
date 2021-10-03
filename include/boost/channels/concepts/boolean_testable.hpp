@@ -12,6 +12,9 @@
 
 #include <boost/channels/concepts/convertible_to.hpp>
 
+#include <memory>
+#include <utility>
+
 #include <type_traits>
 
 namespace boost::channels::concepts {

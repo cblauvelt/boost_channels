@@ -13,6 +13,8 @@
 #include <boost/channels/detail/io_op_interface_base.hpp>
 #include <boost/channels/error_code.hpp>
 
+#include <memory>
+
 namespace boost::channels::detail {
 template < class ValueType, concepts::Lockable Mutex = std::mutex >
 struct basic_produce_op_interface : basic_io_op_interface_base< Mutex >

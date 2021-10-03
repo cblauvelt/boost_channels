@@ -6,8 +6,6 @@
 //
 // Official repository: https://github.com/madmongo1/boost_channels
 //
-#include <doctest/doctest.h>
-
 #include <boost/channels/channel.hpp>
 
 #include <boost/asio/awaitable.hpp>
@@ -16,6 +14,8 @@
 #include <boost/asio/experimental/as_single.hpp>
 #include <boost/asio/io_context.hpp>
 #include <boost/asio/redirect_error.hpp>
+
+#include <doctest/doctest.h>
 
 namespace asio     = boost::asio;
 namespace channels = boost::channels;

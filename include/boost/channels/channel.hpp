@@ -22,6 +22,7 @@
 #include <boost/variant2/variant.hpp>
 
 #include <deque>
+#include <mutex>
 #include <optional>
 #include <queue>
 
@@ -299,7 +300,8 @@ channel< ValueType, Executor, Mutex >::async_consume(ConsumeHandler &&token)
                 auto handler2 = detail::postit(
                     std::move(exec1), std::forward< Handler1 >(handler1));
                 impl1->submit_consume_op(
-                    detail::make_consumer_op_function< ValueType, Mutex >(std::move(handler2)));
+                    detail::make_consumer_op_function< ValueType, Mutex >(
+                        std::move(handler2)));
             }
             else [[unlikely]]
             {

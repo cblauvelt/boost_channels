@@ -13,6 +13,8 @@
 #include <boost/channels/detail/io_op_interface_base.hpp>
 #include <boost/channels/error_code.hpp>
 
+#include <memory>
+
 namespace boost::channels::detail {
 template < class ValueType, concepts::Lockable Mutex = std::mutex >
 struct basic_consume_op_interface : basic_io_op_interface_base< Mutex >
@@ -29,11 +31,12 @@ struct basic_consume_op_interface : basic_io_op_interface_base< Mutex >
     commit(value_type &&source) = 0;
 };
 
-template < class ValueType , concepts::Lockable Mutex>
-using basic_consumer_ptr = std::shared_ptr< basic_consume_op_interface< ValueType, Mutex > >;
+template < class ValueType, concepts::Lockable Mutex >
+using basic_consumer_ptr =
+    std::shared_ptr< basic_consume_op_interface< ValueType, Mutex > >;
 
-template<class ValueType>
-using consume_op_interface = basic_consume_op_interface<ValueType>;
+template < class ValueType >
+using consume_op_interface = basic_consume_op_interface< ValueType >;
 
 template < class ValueType >
 using consumer_ptr = std::shared_ptr< consume_op_interface< ValueType > >;

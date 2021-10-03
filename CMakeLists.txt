@@ -21,6 +21,12 @@ project(boost_channels VERSION "${BOOST_CHANNELS_VERSION}" LANGUAGES CXX)
 option(BOOST_CHANNELS_BUILD_TESTS "Build boost::channels tests" ${BUILD_TESTING})
 option(BOOST_CHANNELS_BUILD_EXAMPLES "Build boost::channels examples" ${BOOST_CHANNELS_BUILD_TESTS})
 
+# GCC10 needs extra compiler options
+if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" AND
+    CMAKE_CXX_COMPILER_VERSION VERSION_GREATER_EQUAL 10)
+    set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fcoroutines -std=c++20")
+endif()
+
 find_package(Threads)
 
 file(GLOB_RECURSE BOOST_CHANNELS_HEADERS CONFIGURE_DEPENDS

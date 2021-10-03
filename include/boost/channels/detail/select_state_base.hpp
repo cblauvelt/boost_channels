@@ -14,6 +14,7 @@
 #include <boost/channels/config.hpp>
 #include <boost/channels/error_code.hpp>
 
+#include <memory>
 #include <tuple>
 
 namespace boost::channels::detail {
